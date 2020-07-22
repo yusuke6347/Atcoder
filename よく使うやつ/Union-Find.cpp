@@ -3,18 +3,19 @@
 using namespace std;
 
 class UnionFind{
-    vector<int> p; //e
-    vector<int> Rank; //–Ø‚Ì[‚³
+    vector<int> p; //è¦ª
+    vector<int> Rank; //æœ¨ã®æ·±ã•
 
+public:
     UnionFind(int n) {
         p.resize(n);
-        for (int i = 0; i < n; i++) p[i] = i; //©•ª‚Ìe‚ğ©•ª©g‚É‰Šú‰»‚µ‚Ä‚¨‚­
-        Rank.resize(n, 0); //‚‚³‚Ì‰Šú‰»
+        for (int i = 0; i < n; i++) p[i] = i; //è‡ªåˆ†ã®è¦ªã‚’è‡ªåˆ†è‡ªèº«ã«åˆæœŸåŒ–ã—ã¦ãŠã
+        Rank.resize(n, 0); //é«˜ã•ã®åˆæœŸåŒ–
     }
 
     int find(int x)
     {
-        //e‚ğ•Ô‚µA’T‚·‚Â‚¢‚Å‚Ée‚ğXV‚µA•Ó‚ğk–ñ
+        //è¦ªã‚’è¿”ã—ã€æ¢ã™ã¤ã„ã§ã«è¦ªã‚’æ›´æ–°ã—ã€è¾ºã‚’ç¸®ç´„
         if (p[x] == x)  return x;
         else return p[x] = find(p[x]);
     }
@@ -23,8 +24,8 @@ class UnionFind{
     {
         x = find(x);
         y = find(y);
-        if (x == y) return; //x==y‚Ìê‡‚Ìˆ—
-        //‚‚³‚ª¬‚³‚¢•û‚ğ‚µ‚½‚É‚·‚é
+        if (x == y) return; //x==yã®å ´åˆã®å‡¦ç†
+        //é«˜ã•ãŒå°ã•ã„æ–¹ã‚’ã—ãŸã«ã™ã‚‹
         if (Rank[x] < Rank[y]) {
             p[x] = y;
         }
